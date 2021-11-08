@@ -1,0 +1,17 @@
+Run 
+pip install -r requirements.txt in your shell
+
+For transductive experiments to start training on all 10 splits, run
+
+python hypermsg.py --data cocitation --dataset cora --epochs 250
+python hypermsg.py --data cocitation --dataset citeseer --epochs 250
+python hypermsg.py --data cocitation --dataset pubmed --epochs 250
+
+For DBLP and Cora (co-authorship), comment line 60 and 61 and run
+python hypermsg.py --data coauthorship --dataset dblp --epochs 250
+python hypermsg.py --data coauthorship --dataset cora --epochs 250
+
+To use different values of $p$ and $\alpha$ replace the function "signal_shift_hypergraph_" in utils.py with 
+"signal_shift_hypergraph_inductive_p_alpha" and assign $p$ and $\alpha$ values accordingly. 
+
+To change any hyperparamter, please look into the config.py file.
